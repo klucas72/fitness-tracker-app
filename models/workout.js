@@ -10,7 +10,7 @@ const workoutSchema = new schema({
     },
     exercises: {
         type: schema.types.objectID,
-        ref: "exercise"
+        ref: exercise
     },
     totalDuration: {
         type: Number,
