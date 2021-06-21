@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-const exerciseSchema = new schema({
+const exerciseSchema = new Schema({
     type: String,
     name: String,
     distance: Number,
