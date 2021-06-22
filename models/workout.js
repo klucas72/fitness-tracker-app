@@ -37,11 +37,4 @@ const workoutSchema = new Schema({
 
 const Workout = mongoose.model('workout', workoutSchema);
 
-// function totalDuration() {
-//     Workout.aggregate([{ $addFields: { totalDuration: { $sum: "$duration" } } }]).then(data => {
-//         console.log("data after adding total duration::: ", data);
-//     })
-// }
-// return totalDuration
-
 module.exports = Workout;
