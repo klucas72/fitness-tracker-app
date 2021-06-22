@@ -107,9 +107,5 @@ function populateChart(data) {
   });
 }
 
-function totalDuration(totalDuration) {
-  db.workouts.aggregate([{ $addFields: { totalDuration: { $sum: "$duration" } } }])
-}
-
 // get all workout data from back-end
 API.getWorkoutsInRange().then(populateChart);
