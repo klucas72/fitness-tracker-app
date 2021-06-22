@@ -22,6 +22,10 @@ router.get('/api/workouts/range', (req, res) => {
     Workout.find({})
         .sort({ date: -1 })
         .then((workout) => {
+            const updatedData = workout.map(workout => {
+                const totalDuration = workout.exercises.reduce((acc, curr) => acc + curr.duration, 0)
+                return { day: workout.day, exercises: workout.exercises, totalDuration }
+            })
             res.status(200).json(workout);
         })
         .catch(err => {
