@@ -8,7 +8,7 @@ router.get('/api/workouts', (req, res) => {
         .then((workout) => {
             const updatedData = workout.map(workout => {
                 const totalDuration = workout.exercises.reduce((acc, curr) => acc + curr.duration, 0)
-                return { day: workout.day, exercises: workout.exercises, totalDuration }
+                return { _id: workout._id, day: workout.day, exercises: workout.exercises, totalDuration }
             })
             res.status(200).json(updatedData);
         })
@@ -24,7 +24,7 @@ router.get('/api/workouts/range', (req, res) => {
         .then((workout) => {
             const updatedData = workout.map(workout => {
                 const totalDuration = workout.exercises.reduce((acc, curr) => acc + curr.duration, 0)
-                return { day: workout.day, exercises: workout.exercises, totalDuration }
+                return { _id: workout._id, day: workout.day, exercises: workout.exercises, totalDuration }
             })
             res.status(200).json(workout);
         })
