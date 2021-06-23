@@ -1,5 +1,5 @@
-const Workout = require('../models/workout');
-const db = require('../models');
+const { Workout } = require('../models');
+// const db = require('../models');
 const router = require('express').Router();
 
 router.get('/api/workouts', (req, res) => {
@@ -51,8 +51,13 @@ router.put('/api/workouts/:id', async (req, res) => {
         id,
         {
             $push: {
-                exercises: { ...body },
+                exercises: req.body,
             },
+        },
+
+        {
+            new: true,
+            runValidators: true,
         }
     )
         .then((workout) => {
